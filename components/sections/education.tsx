@@ -309,7 +309,7 @@ export default function Education() {
         /* Faster speed for mobile devices */
         @media (max-width: 768px) {
           .animate-marquee {
-            animation: marquee 8s linear infinite;
+            animation: marquee 5s linear infinite;
           }
         }
       `}</style>

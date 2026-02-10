@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { ExternalLink, Github, ChevronRight } from "lucide-react"
 import { Card } from "@/components/ui/card"
@@ -16,7 +16,6 @@ const projects = [
     image: "/project_screenshots/1.png",
     category: "Web Apps",
     tags: ["HTML5", "CSS3", "JavaScript", "PHP", "XAMPP", "MySQL","PHPMyAdmin", "Chart.js","Font Awesome","AOS"],
-    liveUrl: "#",
     githubUrl: "https://github.com/Kandarp02/Crop-Trading-Manager",
     featured: true,
   },
@@ -67,15 +66,30 @@ const itemVariants = {
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const handleProjectClick = () => {
+    if (isMobile) {
+      window.open(project.githubUrl, '_blank')
+    }
+  }
 
   return (
     <motion.div
       variants={itemVariants}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      onTouchStart={() => setIsHovered(true)}
-      onTouchEnd={() => setIsHovered(false)}
-      className="group"
+      onClick={handleProjectClick}
+      className="group cursor-pointer"
     >
       <Card className="relative overflow-hidden rounded-3xl glass">
         <div className="flex flex-col md:flex-row">
@@ -106,18 +120,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
             >
               <motion.a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ scale: 0 }}
-                animate={{ scale: isHovered ? 1 : 0 }}
-                transition={{ delay: 0.1 }}
-                className="p-3 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform"
-              >
-                <ExternalLink className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href={project.githubUrl}
+                href={isMobile ? undefined : project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ scale: 0 }}
