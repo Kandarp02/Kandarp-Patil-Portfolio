@@ -145,7 +145,7 @@ export default function Skills() {
             variants={itemVariants}
             className="mb-20 overflow-hidden"
           >
-            <div className="flex gap-8 animate-marquee">
+            <div className="flex gap-8 animate-marquee min-w-max">
               {[...technologies, ...technologies].map((tech, index) => (
                 <div
                   key={index}
@@ -214,6 +214,7 @@ export default function Skills() {
         @media (max-width: 768px) {
           .animate-marquee {
             animation: marquee 5s linear infinite;
+            width: max-content;
           }
         }
       `}</style>
