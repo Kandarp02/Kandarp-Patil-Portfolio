@@ -69,7 +69,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 }
 
@@ -207,7 +207,7 @@ export default function Skills() {
           }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 15s linear infinite;
         }
       `}</style>
     </section>
