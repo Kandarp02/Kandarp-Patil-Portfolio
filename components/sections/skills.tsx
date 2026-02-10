@@ -209,6 +209,13 @@ export default function Skills() {
         .animate-marquee {
           animation: marquee 15s linear infinite;
         }
+        
+        /* Faster speed for mobile devices */
+        @media (max-width: 768px) {
+          .animate-marquee {
+            animation: marquee 8s linear infinite;
+          }
+        }
       `}</style>
     </section>
   )

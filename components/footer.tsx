@@ -91,7 +91,7 @@ export default function Footer() {
                 out!
               </p>
               <a
-                href="mailto:hello@alexchen.dev"
+                href="mailto:kandarppatil2@gmail.com"
                 className="inline-flex items-center gap-2 text-primary hover:underline"
               >
                 <Mail className="w-4 h-4" />

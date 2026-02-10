@@ -16,7 +16,7 @@ const projects = [
     image: "/project_screenshots/1.png",
     category: "Web Apps",
     tags: ["HTML5", "CSS3", "JavaScript", "PHP", "XAMPP", "MySQL","PHPMyAdmin", "Chart.js","Font Awesome","AOS"],
-    // liveUrl: "#",
+    liveUrl: "#",
     githubUrl: "https://github.com/Kandarp02/Crop-Trading-Manager",
     featured: true,
   },
@@ -61,7 +61,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" as const },
   },
 }
 
@@ -103,8 +103,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               animate={{ opacity: isHovered ? 1 : 0 }}
               className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
             >
-              {/* <motion.a
-                href={project.liveUrl}
+              <motion.a
+                href={project.liveUrl || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ scale: 0 }}
@@ -113,7 +113,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 className="p-3 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform"
               >
                 <ExternalLink className="w-5 h-5" />
-              </motion.a> */}
+              </motion.a>
               <motion.a
                 href={project.githubUrl}
                 target="_blank"
