@@ -163,28 +163,27 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                   <Github className="w-4 h-4 text-muted-foreground" />
                 </a>
               </div>
-            </div>
 
               <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
                 {project.description}
               </p>
-            </div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {project.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary"
-                >
-                  {tag}
-                </span>
-              ))}
-              {project.tags.length > 3 && (
-                <span className="text-xs px-2 py-1 rounded-md bg-secondary text-muted-foreground">
-                  +{project.tags.length - 3}
-                </span>
-              )}
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2">
+                {project.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary"
+                  >
+                    {tag}
+                  </span>
+                ))}
+                {project.tags.length > 3 && (
+                  <span className="text-xs px-2 py-1 rounded-md bg-secondary text-muted-foreground">
+                    +{project.tags.length - 3}
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
