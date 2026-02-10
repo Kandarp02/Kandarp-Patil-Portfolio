@@ -73,6 +73,8 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       variants={itemVariants}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
       className="group"
     >
       <Card className="relative overflow-hidden rounded-3xl glass">
@@ -104,7 +106,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
             >
               <motion.a
-                href={project.liveUrl || '#'}
+                href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ scale: 0 }}
