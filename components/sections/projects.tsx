@@ -152,6 +152,19 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 </span>
               </div>
               
+              {/* Mobile GitHub icon */}
+              <div className="md:hidden flex items-center gap-2 mb-3">
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
+                >
+                  <Github className="w-4 h-4 text-muted-foreground" />
+                </a>
+              </div>
+            </div>
+
               <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
                 {project.description}
               </p>
