@@ -10,12 +10,13 @@ import { Button } from "@/components/ui/button"
 const projects = [
   {
     id: 1,
-    title: "Crop-Trading Manager",
+    title: "Ma Chamunda Trading Company Website",
     description:
-      "A custom-built, full-stack web application developed for Chamunda Mata Traders to streamline inventory management, billing, payment tracking (full, partial, and repayments), and real-time income reporting through a secure, multi-godown PHP–MySQL system.",
+      "A comprehensive agricultural trading management system designed to streamline purchase and sale operations for agricultural commodities. This full-stack web application provides real-time inventory management, financial tracking, and professional reporting capabilities.",
     image: "/project_screenshots/1.png",
     category: "Web Apps",
     tags: ["HTML5", "CSS3", "JavaScript", "PHP", "XAMPP", "MySQL","PHPMyAdmin", "Chart.js","Font Awesome","AOS"],
+    liveUrl: "https://machamundatradingcompany.in/",
     githubUrl: "https://github.com/Kandarp02/Crop-Trading-Manager",
     featured: true,
   },
@@ -119,13 +120,26 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               animate={{ opacity: isHovered ? 1 : 0 }}
               className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center gap-4"
             >
+              {project.liveUrl && (
+                <motion.a
+                  href={isMobile ? undefined : project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: isHovered ? 1 : 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="p-3 rounded-full bg-primary text-primary-foreground hover:scale-110 transition-transform"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </motion.a>
+              )}
               <motion.a
                 href={isMobile ? undefined : project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ scale: 0 }}
                 animate={{ scale: isHovered ? 1 : 0 }}
-                transition={{ delay: 0.2 }}
+                transition={{ delay: project.liveUrl ? 0.2 : 0.1 }}
                 className="p-3 rounded-full bg-secondary hover:scale-110 transition-transform"
               >
                 <Github className="w-5 h-5" />
@@ -152,8 +166,18 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
                 </span>
               </div>
               
-              {/* Mobile GitHub icon */}
+              {/* Mobile icons */}
               <div className="md:hidden flex items-center gap-2 mb-3">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/80 transition-colors"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
                 <a
                   href={project.githubUrl}
                   target="_blank"
