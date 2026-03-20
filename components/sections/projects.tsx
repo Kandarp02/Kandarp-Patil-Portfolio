@@ -17,7 +17,7 @@ const projects = [
     category: "Web Apps",
     tags: ["HTML5", "CSS3", "JavaScript", "PHP", "XAMPP", "MySQL","PHPMyAdmin", "Chart.js","Font Awesome","AOS"],
     liveUrl: "https://machamundatradingcompany.in/",
-    githubUrl: "https://github.com/Kandarp02/Crop-Trading-Manager",
+    githubUrl: "https://github.com/Kandarp02/ma-chamunda-trading-company",
     featured: true,
   },
 
