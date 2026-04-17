@@ -199,13 +199,13 @@ export default function Experience() {
               Journey
             </span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-              Experience & <span className="gradient-text">Education</span>
+              Experience
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              My professional journey and academic background that shaped my
+              My professional journey that shaped my
               expertise in software development.
             </p>
-          </motion.div>
+          </motion.div> 
 
           
 
